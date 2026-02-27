@@ -1,18 +1,20 @@
-// تأثير التمرير للأسفل لتغيير شكل الرأس والشعار
 window.addEventListener('scroll', function() {
     const header = document.getElementById('main-header');
+    
+    // If user scrolls more than 50px
     if (window.scrollY > 50) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
+        // Close menu if it was open when going back to top
+        document.getElementById('dropdown-nav').classList.remove('active');
     }
 });
 
-// تفعيل القائمة المنسدلة عند الضغط على الشرطات
-const menuIcon = document.getElementById('menu-icon');
-const navMenu = document.getElementById('nav-menu');
+// Toggle Hamburger Menu
+const hamburger = document.getElementById('hamburger-menu');
+const nav = document.getElementById('dropdown-nav');
 
-menuIcon.addEventListener('click', function() {
-    navMenu.classList.toggle('active');
-    // يمكنك إضافة كود CSS لتنسيق `.nav-menu.active` كقائمة منسدلة عمودية
+hamburger.addEventListener('click', function() {
+    nav.classList.toggle('active');
 });
