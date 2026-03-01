@@ -1,59 +1,46 @@
-// بيانات المقالات - تأكد من مطابقة أسماء الملفات في الروابط
-const articles = [
+// Database Array: Add your new articles here!
+const projectsData = [
     {
-        title: "Audifort: The Science of Healthy Hearing",
-        description: "Explore how natural ingredients support your auditory system and enhance neural clarity in 2026.",
+        title: "Audifort: Advanced Hearing Science",
+        description: "An analytical review on natural auditory triggers and neural health in modern environments.",
         image: "https://drive.google.com/thumbnail?id=17RoGQoc9n9Xkehndpa0yA-YGapTNsXFk",
         link: "audifort-review.html",
-        category: "WELLNESS"
+        category: "Biological Wellness"
     },
     {
-        title: "The Hero Instinct: Decoding Connection",
-        description: "An expert analysis into the psychological triggers that drive deep emotional commitment in men.",
+        title: "The Hero Instinct Decoding",
+        description: "A psychological study on male commitment triggers and evolutionary relationship drives.",
         image: "https://s3.amazonaws.com/bei/hso/Products/HSO_Book_Phone.png",
         link: "secret-obsession.html",
-        category: "PSYCHOLOGY"
+        category: "Human Psychology"
     }
 ];
 
-// دالة العرض الأساسية
-function displayArticles() {
-    const container = document.getElementById('articles-container');
-    
-    // إذا لم يجد الحاوية، سيحاول مرة أخرى بعد قليل
-    if (!container) {
-        setTimeout(displayArticles, 100);
-        return;
-    }
+// Injections function
+function initExpertAI() {
+    const grid = document.getElementById('dynamic-grid');
+    if (!grid) return;
 
-    container.innerHTML = articles.map(post => `
-        <div class="article-card">
-            <img src="${post.image}" alt="${post.title}" class="article-img">
-            <div class="article-body">
-                <span style="color: #00d4ff; font-size: 0.7rem; font-weight: bold; letter-spacing: 1px;">${post.category}</span>
-                <h3 style="color: #ffffff; margin: 10px 0; font-size: 1.3rem;">${post.title}</h3>
-                <p style="color: #adb5bd; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">${post.description}</p>
-                <a href="${post.link}" style="color: #00d4ff; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+    grid.innerHTML = projectsData.map(item => `
+        <div class="card" onclick="window.location.href='${item.link}'">
+            <img src="${item.image}" class="card-img" alt="${item.title}">
+            <div class="card-content">
+                <span class="category-tag">${item.category}</span>
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+                <div style="color: var(--cyan); font-weight: bold; font-size: 0.9rem;">
                     Read Analysis →
-                </a>
+                </div>
             </div>
         </div>
     `).join('');
 }
 
-// نظام القائمة المنسدلة للجوال
-function setupMobileMenu() {
-    const hamburger = document.getElementById('hamburger-menu');
-    const nav = document.getElementById('dropdown-nav');
-    if (hamburger && nav) {
-        hamburger.onclick = () => {
-            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-        };
-    }
-}
+// Mobile Menu Toggle Logic
+document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+    const nav = document.getElementById('mobile-nav');
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+});
 
-// تشغيل كل شيء بمجرد تحميل الصفحة
-window.onload = () => {
-    displayArticles();
-    setupMobileMenu();
-};
+// Run on load
+document.addEventListener('DOMContentLoaded', initExpertAI);
