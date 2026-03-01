@@ -3,61 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expert AI | Technology & Wellness Insights</title>
+    <title>Expert AI | Tech & Wellness Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* نظام الشبكة والبطاقات */
-        #articles-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            min-height: 200px;
-        }
-        .article-card {
-            background: #1e293b;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 212, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .article-card:hover { transform: translateY(-10px); }
-        .article-img { width: 100%; height: 200px; object-fit: cover; }
-        .article-body { padding: 20px; text-align: left; }
-    </style>
 </head>
-<body>
-    <header id="main-header">
-        <div class="header-container">
-            <div class="logo" id="site-logo">
-                <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
-                    <span class="expert" style="color:#ffffff; font-weight:bold; font-size:1.5rem;">Expert</span><span class="ai" style="color:#00d4ff; font-weight:bold; font-size:1.5rem;">AI</span>
+<body class="dark-theme">
+
+    <header class="main-header" id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="text-white">Expert</span><span class="text-cyan">AI</span>
                 </a>
             </div>
-            <div class="hamburger" id="hamburger-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+            
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Insights</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="contact.html" class="cta-small">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="mobile-toggle" id="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </div>
         </div>
-        <nav class="dropdown-nav" id="dropdown-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Project</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
+        
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">Insights</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </header>
 
-    <main class="content" style="padding-top: 150px; padding-bottom: 80px;">
-        <section style="text-align: center; margin-bottom: 70px;">
-            <h1 style="font-size: 3rem; color: #ffffff;">Decoding The <span style="color: #00d4ff;">Future</span></h1>
-            <p style="color: #adb5bd;">Smart Insights for a Better Life</p>
-        </section>
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-in">Decoding the <span class="text-cyan">Future</span></h1>
+            <p>Advanced Analysis on AI, Human Psychology, and Biological Systems.</p>
+        </div>
+    </section>
 
-        <section style="width: 90%; max-width: 1200px; margin: 0 auto;">
-            <h2 style="color: #00d4ff; margin-bottom: 30px; border-left: 5px solid #00d4ff; padding-left: 15px;">TRENDING INSIGHTS</h2>
+    <section class="articles-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="cyan-border-left">Latest Research</h2>
+            </div>
             
-            <div id="articles-container">
+            <div id="dynamic-grid" class="grid-container">
                 </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 Expert AI Portfolio. Built for Intelligence.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
